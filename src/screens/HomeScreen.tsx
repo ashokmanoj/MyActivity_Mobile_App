@@ -13,7 +13,7 @@ const menuItems = [
   { icon: 'git-network-outline' as const, title: 'Class run', screen: 'ClassRun' },
   { icon: 'location' as const, title: 'Add Location', screen: 'AddLocation' },
   { icon: 'cube-outline' as const, title: 'Asset Management', screen: 'Assets' },
-  { icon: 'document-text-outline' as const, title: 'Documentation', screen: 'Documentation' },
+  { icon: 'document-text-outline' as const, title: 'Documentation', screen: 'DocumentationReports' },
 ];
 
 interface HomeScreenProps {
