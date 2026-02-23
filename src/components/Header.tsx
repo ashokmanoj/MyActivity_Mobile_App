@@ -33,11 +33,11 @@ export default function Header({
         <View style={styles.leftSection}>
           {showBack ? (
             <TouchableOpacity onPress={onBackPress} style={styles.iconButton}>
-              <Ionicons name="arrow-back" size={24} color={colors.white} />
+              <Ionicons name="arrow-back" size={32} color={colors.white} />
             </TouchableOpacity>
           ) : onMenuPress ? (
             <TouchableOpacity onPress={onMenuPress} style={styles.iconButton}>
-              <Ionicons name="menu" size={24} color={colors.white} />
+              <Ionicons name="menu" size={32} color={colors.white} />
             </TouchableOpacity>
           ) : null}
           <Text style={styles.title}>{title}</Text>
@@ -68,12 +68,12 @@ const styles = StyleSheet.create({
   },
   iconButton: {
     padding: 4,
-    marginRight: 12,
+    marginRight: 16,
   },
   title: {
     color: colors.white,
-    fontSize: typography.header.fontSize,
-    fontWeight: typography.header.fontWeight,
+    fontSize: 20,
+    fontWeight: '600',
     flex: 1,
   },
 });

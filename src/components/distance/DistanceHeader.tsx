@@ -44,14 +44,14 @@ export default function DistanceHeader({
 const styles = StyleSheet.create({
   header: {
     backgroundColor: colors.primaryDark,
-    paddingTop: Platform.OS === 'ios' ? 54 : 44,
+    paddingTop: Platform.OS === 'ios' ? 64 : 44,
     paddingBottom: 12,
     paddingHorizontal: 16,
     flexDirection: 'row',
     alignItems: 'center',
   },
-  backBtn: { padding: 4, marginRight: 12 },
-  titleRow: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: 8 },
+  backBtn: { padding: 8, marginRight: 12},
+  titleRow: { flex: 1, flexDirection: 'row', alignItems: 'flex-end', gap: 20 },
   titleMain: {
     color: colors.white,
     fontSize: 18,

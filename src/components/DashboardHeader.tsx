@@ -19,6 +19,9 @@ export default function DashboardHeader({
       {/* Faint background graphics */}
       <View style={styles.bgPhone} />
       <View style={styles.bgCircle} />
+      <View style={styles.bgCircle1} />
+      <View style={styles.bgPhone} />
+      <View style={styles.bgBox} />
       <View style={styles.content}>
         <View style={styles.leftSection}>
           <TouchableOpacity onPress={onMenuPress} style={styles.menuButton}>
@@ -35,32 +38,58 @@ export default function DashboardHeader({
 const styles = StyleSheet.create({
   header: {
     backgroundColor: colors.primaryDark,
-    paddingTop: Platform.OS === 'ios' ? 54 : 44,
+    paddingTop: Platform.OS === 'ios' ? 70 : 64,
     paddingBottom: 24,
     paddingHorizontal: 20,
     position: 'relative',
   },
   bgPhone: {
     position: 'absolute',
-    right: '15%',
-    top: 30,
-    width: 80,
+    right: '55%',
+    top: 90,
+    width: 100,
     height: 140,
     borderRadius: 12,
-    borderWidth: 2,
-    borderColor: 'rgba(255,255,255,0.12)',
-    opacity: 0.6,
+    borderWidth: 6,
+    borderColor: '#1A5AFF',
+    backgroundColor: '#D4E1E8',
+    opacity: 0.3,
   },
   bgCircle: {
     position: 'absolute',
-    right: '5%',
-    bottom: -20,
-    width: 120,
-    height: 120,
-    borderRadius: 60,
-    borderWidth: 2,
-    borderColor: 'rgba(255,255,255,0.08)',
+    right: '20%',
+    bottom: -50,
+    width: 100,
+    height: 100,
+    borderRadius: 100,
+    borderWidth: 5,
+    borderColor: 'rgba(255, 255, 255, 0.08)',
     opacity: 0.5,
+    backgroundColor:'#A5A797'
+  },
+  bgCircle1: {
+    position: 'absolute',
+    right: '28%',
+    bottom: -25,
+    width: 50,
+    height: 50,
+    borderRadius: 100,
+    borderWidth: 5,
+    borderColor: '#6652EF',
+    opacity: 0.9,
+    backgroundColor:'#8B69F0'
+  },
+  bgBox:{
+    position: 'absolute',
+    right: '43%',
+    top: 120,
+    width: 45,
+    height: 130,
+    borderRadius: 12,
+    borderWidth: 6,
+    borderColor: 'rgba(0, 0, 0, 0.12)',
+    backgroundColor: '#DFEE70',
+    opacity: 0.3,
   },
   content: {
     flexDirection: 'row',
@@ -73,17 +102,17 @@ const styles = StyleSheet.create({
     alignItems: 'flex-start',
   },
   menuButton: {
-    padding: 4,
-    marginBottom: 4,
+    paddingLeft: 0,
+    marginBottom: 3,
   },
   version: {
     color: 'rgba(255,255,255,0.95)',
-    fontSize: 12,
-    fontWeight: '500',
+    fontSize: 13,
+    fontWeight: '700',
   },
   logo: {
     color: '#FF5722',
-    fontSize: 20,
+    fontSize: 15,
     fontWeight: '700',
     letterSpacing: 1,
   },

@@ -13,7 +13,7 @@ export default function HomeGridButton({ icon, title, onPress }: HomeGridButtonP
   return (
     <TouchableOpacity style={styles.button} onPress={onPress} activeOpacity={0.8}>
       <View style={styles.iconContainer}>
-        <Ionicons name={icon} size={32} color={colors.primary} />
+        <Ionicons name={icon} size={45} style={styles.icon}/>
       </View>
       <Text style={styles.title} numberOfLines={2}>{title}</Text>
     </TouchableOpacity>
@@ -23,11 +23,11 @@ export default function HomeGridButton({ icon, title, onPress }: HomeGridButtonP
 const styles = StyleSheet.create({
   button: {
     backgroundColor: colors.white,
-    borderRadius: 24,
+    borderRadius: 16,
     padding: 20,
     alignItems: 'center',
     justifyContent: 'center',
-    minHeight: 130,
+    minHeight: 120,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
@@ -39,8 +39,11 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 14,
-    fontWeight: '600',
-    color: colors.primary,
+    fontWeight: '400',
+    color: colors.primaryDark,
     textAlign: 'center',
+  },
+  icon: {
+    color: colors.primaryDark,
   },
 });

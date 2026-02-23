@@ -44,18 +44,19 @@ const styles = StyleSheet.create({
   row: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    paddingHorizontal: 8,
+    padding : 50,
     paddingBottom: 16,
   },
   option: {
     flex: 1,
     marginHorizontal: 6,
-    backgroundColor: 'rgba(255,255,255,0.2)',
+    
     borderRadius: 12,
-    paddingVertical: 14,
+    paddingVertical: 5,
     alignItems: 'center',
     borderWidth: 1,
-    borderColor: 'transparent',
+    borderColor:'#FFFFFF'
+ 
   },
   optionSelected: {
     backgroundColor: colors.white,

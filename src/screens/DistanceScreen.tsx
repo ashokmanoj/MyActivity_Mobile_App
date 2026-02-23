@@ -145,7 +145,7 @@ export default function DistanceScreen({ navigation }: any) {
 const styles = StyleSheet.create({
   container: { flex: 1, backgroundColor: colors.white },
   content: { flex: 1 },
-  vehicleSection: { backgroundColor: colors.primaryDark, paddingHorizontal: 8 },
+  vehicleSection: { backgroundColor: colors.primaryDark, paddingHorizontal: 8, borderBottomEndRadius:20, borderBottomLeftRadius:20 },
   scroll: { flex: 1 },
   scrollContent: { padding: 16, paddingBottom: 24 },
   totalRow: {

@@ -1,20 +1,32 @@
 import React from 'react';
-import { View, StyleSheet, ScrollView } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  ScrollView,
+  TouchableOpacity,
+  Text,
+} from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import { colors } from '../theme/colors';
 import DashboardHeader from '../components/DashboardHeader';
-import HomeGridButton from '../components/HomeGridButton';
 import SyncFooter from '../components/SyncFooter';
 
-const menuItems = [
-  { icon: 'navigate' as const, title: 'Distance', screen: 'Distance' },
-  { icon: 'receipt-outline' as const, title: 'Expense', screen: 'ExpenseList' },
-  { icon: 'list' as const, title: 'Task List', screen: 'NewTaskList' },
-  { icon: 'walk-outline' as const, title: 'Task Activity', screen: 'TaskActivity' },
-  { icon: 'git-network-outline' as const, title: 'Class run', screen: 'ClassRun' },
-  { icon: 'location' as const, title: 'Add Location', screen: 'AddLocation' },
-  { icon: 'cube-outline' as const, title: 'Asset Management', screen: 'Assets' },
-  { icon: 'document-text-outline' as const, title: 'Documentation', screen: 'DocumentationReports' },
-];
+type IconName = React.ComponentProps<typeof Ionicons>['name'];
+
+const menuItems: {
+  icon: IconName;
+  title: string;
+  screen: string;
+}[] = [
+    { icon: 'location-outline', title: 'Distance', screen: 'Distance' },
+    { icon: 'receipt', title: 'Expense', screen: 'ExpenseList' },
+    { icon: 'list-outline', title: 'Task List', screen: 'NewTaskList' },
+    { icon: 'walk', title: 'Task Activity', screen: 'TaskActivity' },
+    { icon: 'easel-outline', title: 'Class run', screen: 'ClassRun' },
+    { icon: 'location-sharp', title: 'Add Location', screen: 'AddLocation' },
+    { icon: 'clipboard-outline', title: 'Asset Management', screen: 'Assets' },
+    { icon: 'document-attach-outline', title: 'Documentation', screen: 'DocumentationReports' },
+  ];
 
 interface HomeScreenProps {
   navigation: any;
@@ -22,12 +34,13 @@ interface HomeScreenProps {
 
 export default function HomeScreen({ navigation }: HomeScreenProps) {
   const handleSync = () => {
-    // Sync logic
+    // Your sync logic
   };
 
   return (
     <View style={styles.container}>
       <DashboardHeader onMenuPress={() => navigation.openDrawer()} />
+
       <ScrollView
         style={styles.content}
         contentContainerStyle={styles.scrollContent}
@@ -35,15 +48,24 @@ export default function HomeScreen({ navigation }: HomeScreenProps) {
       >
         <View style={styles.grid}>
           {menuItems.map((item, index) => (
-            <View key={index} style={styles.gridItem}>
-              <HomeGridButton
-                icon={item.icon}
-                title={item.title}
-                onPress={() => navigation.navigate(item.screen)}
-              />
-            </View>
+            <TouchableOpacity
+              key={index}
+              style={styles.gridItem}
+              onPress={() => navigation.navigate(item.screen)}
+              activeOpacity={0.8}
+            >
+              <View style={styles.card}>
+                <Ionicons
+                  name={item.icon}
+                  size={32}
+                  color={colors.primaryDark}
+                />
+                <Text style={styles.title}>{item.title}</Text>
+              </View>
+            </TouchableOpacity>
           ))}
         </View>
+
         <SyncFooter onSync={handleSync} />
       </ScrollView>
     </View>
@@ -55,22 +77,46 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: colors.primaryDark,
   },
+
   content: {
     flex: 1,
   },
+
   scrollContent: {
     flexGrow: 1,
     paddingHorizontal: 16,
-    paddingTop: 10,
-    paddingBottom: 0,
+    paddingTop: 0,
   },
+
   grid: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'space-between',
   },
+
   gridItem: {
-    width: '48%',
-    marginBottom: 18,
+    width: '46%',
+    marginBottom: 15,
+    margin:3
+    
+  },
+
+  /* 🔥 CARD STYLE (Icon Top, Text Bottom) */
+  card: {
+    backgroundColor: colors.white,
+    borderRadius: 15,
+    paddingVertical: 28,
+    paddingHorizontal: 16,
+    alignItems: 'left',
+    justifyContent: 'center',
+    elevation: 4,
+  },
+
+  title: {
+    marginTop: 14,
+    fontSize: 15,
+    fontWeight: '600',
+    color: colors.primaryDark,
+    textAlign: 'center',
   },
 });
