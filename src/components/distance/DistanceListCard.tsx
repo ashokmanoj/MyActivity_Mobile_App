@@ -66,7 +66,7 @@ const styles = StyleSheet.create({
   statusTextStarted: { color: '#F57F17' },
   cardBody: { flexDirection: 'row', alignItems: 'flex-start' },
   section: { flex: 1 },
-  sectionLabelOrange: { fontSize: 12, fontWeight: '700', color: Colors.accent, marginBottom: 4 },
+  sectionLabelOrange: { fontSize: 12, fontWeight: '700', color: Colors.accent, marginBottom: 0 },
   sectionLabelRed: { fontSize: 12, fontWeight: '700', color: Colors.statusRed, marginBottom: 4 },
   odoText: { fontSize: 14, color: Colors.text, marginBottom: 2 },
   dateText: { fontSize: 12, color: Colors.textSecondary },

@@ -107,13 +107,12 @@ const styles = StyleSheet.create({
     borderRadius: 15,
     paddingVertical: 28,
     paddingHorizontal: 16,
-    alignItems: 'left',
     justifyContent: 'center',
     elevation: 4,
   },
 
   title: {
-    marginTop: 14,
+    marginTop: 9,
     fontSize: 15,
     fontWeight: '600',
     color: colors.primaryDark,

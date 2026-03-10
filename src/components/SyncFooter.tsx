@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#32109A',
     paddingVertical: 12,
-    paddingHorizontal: 20,
+    paddingHorizontal: 15,
     borderRadius: 14,
   },
   syncText: {
