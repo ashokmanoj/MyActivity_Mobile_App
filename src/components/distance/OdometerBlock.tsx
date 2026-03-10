@@ -1,12 +1,18 @@
-import React from 'react';
-import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
-import { colors } from '../../theme/colors';
-import { typography } from '../../theme/typography';
+import React from "react";
+import {
+  View,
+  Text,
+  StyleSheet,
+  TextInput,
+  TouchableOpacity,
+} from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import { colors } from "../../theme/colors";
+import { typography } from "../../theme/typography";
 
 interface OdometerBlockProps {
   label: string;
-  icon: 'flag' | 'flag-outline';
+  icon: "flag" | "flag-outline";
   value: string;
   onChangeText: (v: string) => void;
   dateTime?: string;
@@ -34,24 +40,43 @@ export default function OdometerBlock({
       </View>
       <View style={styles.inputRow}>
         <View style={styles.odoField}>
-          <Text style={styles.odoLabel}>Odometer</Text>
-          <TextInput
-            style={styles.odoInput}
-            value={value}
-            onChangeText={onChangeText}
-            placeholder="0"
-            placeholderTextColor={colors.textSecondary}
-            keyboardType="numeric"
-          />
-          <Text style={styles.unit}>KM</Text>
+          {/* Odometer row - perfectly aligned */}
+          <View style={styles.odoMainRow}>
+            <Text style={styles.odoLabel}>Odometer</Text>
+            <TextInput
+              style={styles.odoInput}
+              value={value}
+              onChangeText={onChangeText}
+              placeholder="0"
+              placeholderTextColor={colors.textSecondary}
+              keyboardType="numeric"
+            />
+            <Text style={styles.unit}>KM</Text>
+          </View>
         </View>
         <View style={styles.imageButtons}>
-          <TouchableOpacity style={styles.imageBtn} onPress={onOdoImage} activeOpacity={0.7}>
-            <Ionicons name="image-outline" size={24} color={colors.primaryLight} />
+          <TouchableOpacity
+            style={styles.imageBtn}
+            onPress={onOdoImage}
+            activeOpacity={0.7}
+          >
+            <Ionicons
+              name="image-outline"
+              size={24}
+              color={colors.primaryLight}
+            />
             <Text style={styles.imageLabel}>ODO</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.imageBtn} onPress={onSelfieImage} activeOpacity={0.7}>
-            <Ionicons name="person-outline" size={24} color={colors.primaryLight} />
+          <TouchableOpacity
+            style={styles.imageBtn}
+            onPress={onSelfieImage}
+            activeOpacity={0.7}
+          >
+            <Ionicons
+              name="person-outline"
+              size={24}
+              color={colors.primaryLight}
+            />
             <Text style={styles.imageLabel}>SELFIE</Text>
           </TouchableOpacity>
         </View>
@@ -62,42 +87,83 @@ export default function OdometerBlock({
 
 const styles = StyleSheet.create({
   block: { marginBottom: 20 },
-  tagRow: { flexDirection: 'row', alignItems: 'center', marginBottom: 10 },
+  tagRow: { flexDirection: "row", alignItems: "center", marginBottom: 10 },
   tag: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: "row",
+    alignItems: "center",
     backgroundColor: colors.accent,
     paddingVertical: 6,
     paddingHorizontal: 12,
     borderRadius: 8,
     marginRight: 12,
   },
-  tagText: { color: colors.white, fontSize: 12, fontWeight: '700', marginLeft: 4 },
+  tagText: {
+    color: colors.white,
+    fontSize: 12,
+    fontWeight: "700",
+    marginLeft: 4,
+  },
   dateTime: { fontSize: 12, color: colors.textSecondary },
-  inputRow: { flexDirection: 'row', alignItems: 'flex-end' },
+  inputRow: { 
+    flexDirection: "row", 
+    alignItems: "flex-end",
+   // Changed to center for perfect alignment
+  },
   odoField: {
     flex: 1,
     backgroundColor: colors.background,
     borderRadius: 10,
     paddingHorizontal: 12,
-    paddingVertical: 10,
+    paddingVertical: 12,
     borderBottomWidth: 1,
     borderBottomColor: colors.border,
   },
-  odoLabel: { fontSize: 12, color: colors.textSecondary, marginBottom: 4 },
-  odoInput: { fontSize: 16, color: colors.text, paddingVertical: 4 },
-  unit: { fontSize: 12, color: colors.textSecondary },
-  imageButtons: { flexDirection: 'row', marginLeft: 12 },
+  // NEW: Single row for perfect alignment
+  odoMainRow: {
+    flexDirection: "row",
+    alignItems: "center", // Perfect baseline alignment
+    justifyContent: "space-between",
+  },
+  odoLabel: {
+    fontSize: 12,
+    color: colors.textSecondary,
+    flexShrink: 1, // Prevents overflow
+    minWidth: 60, // Fixed width for consistency
+  },
+  odoInput: { 
+    fontSize: 18, 
+    color: colors.text, 
+    paddingVertical: 4,
+    paddingHorizontal: 8,
+    minWidth: 80, // Ensures input has space
+    textAlign: "center",
+    flexShrink: 1,
+  },
+  unit: { 
+    fontSize: 12, 
+    color: colors.textSecondary,
+    minWidth: 30,
+    textAlign: "center"
+  },
+  imageButtons: { 
+    flexDirection: "row", 
+    marginLeft: 12,
+    alignItems: "flex-end"
+  },
   imageBtn: {
     width: 56,
     height: 56,
     backgroundColor: colors.background,
     borderRadius: 10,
-    alignItems: 'center',
-    justifyContent: 'center',
+    alignItems: "center",
+    justifyContent: "center",
     marginLeft: 8,
     borderWidth: 1,
     borderColor: colors.border,
   },
-  imageLabel: { fontSize: 10, color: colors.textSecondary, marginTop: 4 },
+  imageLabel: { 
+    fontSize: 10, 
+    color: colors.textSecondary, 
+    marginTop: 4 
+  },
 });
